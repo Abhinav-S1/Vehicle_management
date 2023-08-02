@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div class="container">
+
+    <div class="rightbox">
+        <div class="profile">
+            <h1>Personal Info</h1>
+            <br>
+            <h2><i class="fa fa-user"></i> Name</h2>
+            <p> {{ name }}</p>
+            <hr>
+
+            <h2><i class="fas fa-envelope"></i> Email</h2>
+            <p> {{ email }}</p>
+            <hr>
+
+
+            <h2><i class="fas fa-address-card"></i> Aadhar number</h2>
+            <p>{{ aadhar }}</p>
+            <hr>
+
+            <h2><i class="fa fa-mobile"></i> Phone number</h2>
+            <p>{{ phone}}</p>
+            <hr>
+
+            <h2><i class="fas fa-home"></i> Address</h2>
+            <p>{{ address }}</p>
+            <hr>
+
+            <br>
+
+            
+            <div class="row">
+                <div class="form-group col-6">
+                    <a href="/update_details" class="btn btn-primary text-secondary mr-3" style="background-color: #d2ffe1 ">Update details</a>
+                </div>
+                <div class="form-group col-6">
+                    <a href="/changepassword" class="btn btn-light text-secondary mr-3" style="background-color: #9DC08B ">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+{% endblock %}

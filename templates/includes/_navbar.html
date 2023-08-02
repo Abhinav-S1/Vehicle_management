@@ -1,0 +1,59 @@
+<header class="header-global">
+  <nav id="navbar-main" aria-label="Primary navigation"
+    class="navbar navbar-main navbar-expand-sm navbar-theme-github headroom navbar-light ">
+    <div class="container">
+      <a class="navbar-brand text-primary" href="/"><h5>Home</h5></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar navbar-default" id="navbar_global">
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          {% if session.logged_in %}
+
+            {% if session.username == 'Admin' %}
+              <li class="nav-item ">
+                <a href="/admin_dashboard" class="btn btn-twitter text-secondary mr-3"><i
+                    class="far fa-paper-plane mr-2"></i>Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a href="/logout" class="btn btn-twitter text-secondary mr-3">Logout</a>
+
+            {% else %}
+              <li class="nav-item ">
+                <a href="/dashboard" class="btn btn-twitter text-secondary mr-3"><i
+                    class="far fa-paper-plane mr-2"></i>Dashboard</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="/changepassword" class="btn btn-primary text-secondary mr-3">Change Password</a>
+              </li> -->
+              <li class="nav-item">
+                <a href="/contact" class="btn btn-twitter text-secondary mr-3">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="/profile" class="btn btn-twitter text-secondary mr-3">profile</a>
+              </li>
+              <li class="nav-item">
+                <a href="/logout" class="btn btn-twitter text-secondary mr-3">Logout</a>
+              </li>
+            {% endif %}
+
+          {% else %}
+            <li class="nav-item">
+              <a href="/admin_login" class="btn btn-twitter text-secondary mr-3">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a href="/register" class="btn btn-twitter text-secondary mr-3">Register</a>
+            </li>
+            <li class="nav-item">
+              <a href="/login" class="btn btn-twitter text-secondary mr-3">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact" class="btn btn-twitter text-secondary mr-3">Contact Us</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- {% from "includes/_formhelpers.html" import render_field %} -->
+<div id="heading">
+  <div class="col ">
+    <center>
+      <h1>Add New Insurance details</h1>
+    </center>
+  </div>
+</div>
+<br>
+
+<div class="login-box well">
+  <form method="POST" action="">
+
+    <div class="form-group">
+      <label for="exampleInputIcon3">LICENSE PLATE NUMBER</label>
+      <div class="input-group mb-4">
+        <select name="lp_number" class="form-control" id="exampleFormControlSelect2" style="background-color: #d2ffe1 ">
+          {% for res in callresults %}
+          <option value="{{res['lp_number']}}">{{res['lp_number']}}</option>
+          {% endfor %}
+          </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputIcon3">INSURANCE NUMBER</label>
+      <div class="input-group mb-4">
+        <input name="i_number" class="form-control" id="exampleInputIcon3" placeholder="" type="text" value="{{i_number}}" minlength="15" maxlength="15" style="background-color: #d2ffe1" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputIcon3">INSURANCE COMPANY</label>
+      <div class="input-group mb-4">
+        <input name="i_company" class="form-control" id="exampleInputIcon3" placeholder="" type="text" value="{{i_company}}" style="background-color: #d2ffe1 " required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="exampleInputIcon3">INSURANCE AMOUNT</label>
+      <div class="input-group mb-4">
+        <input name="i_amount" class="form-control" id="exampleInputIcon3" placeholder="" type="number" value="{{i_amount}}" style="background-color: #d2ffe1 " required>
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="form-group col-6">
+      <label for="exampleInputIcon3">REGISTRATION DATE</label>
+      <div class="input-group mb-4">
+        <input name="reg_date" class="form-control" id="exampleInputIcon3"  type="date" style="background-color: #d2ffe1 " required>
+      </div>
+    </div>
+
+    <div class="form-group col-6">
+      <label for="exampleInputIcon3">EXPIRY DATE</label>
+      <div class="input-group mb-4">
+        <input name="exp_date" class="form-control" id="exampleInputIcon3"  type="date" style="background-color: #d2ffe1 " required>
+      </div>
+    </div>
+  </div>
+
+  
+
+    <p><center><input type="submit" class="btn btn-primary" value="Submit" style="background-color: #006b3e; color: #f7f9f7"></center></p>
+  </form>
+</div>
+{% endblock %}

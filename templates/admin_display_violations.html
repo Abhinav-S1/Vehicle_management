@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div id="heading">
+    <div class="col card bg-dribbble text-indigo shadow-soft border-light">
+        <center>
+            <h1>Traffic Violations</h1>
+        </center>
+    </div>
+</div>
+<br>
+<br>
+<div class="mb-5">
+    {% if len_row==0 %}
+    <div id="heading">
+        <div class="col">
+            <center>
+                <h2>No entries found</h2>
+            </center>
+        </div>
+    </div>
+    {% else %}
+    <div class="table-responsive-sm shadow-soft rounded">
+        <table class="table table-striped " id ="datatable">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="border-0" scope="col">Username</th>
+                    <th class="border-0" scope="col">License plate</th>
+                    <th class="border-0" scope="col">Model</th>
+                    <th class="border-0" scope="col">Challen no</th>
+                    <th class="border-0" scope="col">Location</th>
+                    <th class="border-0" scope="col">Type</th>
+                    <th class="border-0" scope="col">Fine Amt</th>
+                    <th class="border-0" scope="col">date</th>
+                    <th class="border-0" scope="col">time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in callresults%}
+                <tr>
+                    <td>{{res['username']}}</td>
+                    <td>{{res['lp_number']}}</td>
+                    <td>{{res['model']}}</td>
+                    <td>{{res['challen_number']}}</td>
+                    <td>{{res['location']}}</td>
+                    <td>{{res['type_of_violation']}}</td>
+                    <td>{{res['fine_amount']}}</td>
+                    <td>{{res['v_date']}}</td>
+                    <td>{{res['v_time']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+    </script>
+    <br>
+    {% endif %}
+    <br>
+    <center><a class="btn btn-primary" href="/add_violation" style="background-color: #d2ffe1 ">Add violation</a></center>
+</div>
+{% endblock %}

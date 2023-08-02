@@ -1,0 +1,41 @@
+
+
+
+{% extends 'layout.html' %}
+{% block body %}
+
+<div id="heading">
+    <div class="col card bg-dribbble text-indigo shadow-soft border-light">
+        <center>
+            <h1>User Queries</h1>
+        </center>
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    {% for res in mongores %}
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4 justify-content-center">
+            <div class="card bg-slack text-primary shadow-soft border-light p-3">
+                <div class="card-header pb-0">
+                    <h5>{{ res['cname']}}</h5>  
+                    <h6 class="h6">{{ res['cemail']}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-8 justify-content-center">
+            <div class="card bg-twitter shadow-soft border-light p-2">
+                <div class="card-header pb-0">
+                    <h6 class="h6">{{ res['cquery']}}</h6>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    {% endfor %}
+</div>
+
+<br><br><br>
+{% endblock %}

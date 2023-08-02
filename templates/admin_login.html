@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+       <main>
+	<section class="min-vh-100 d-flex bg-primary align-items-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6 justify-content-center">
+                        <div class="card bg-dribbble shadow-soft border-light p-4">
+                            <div class="card-header text-center pb-0">
+							<h2 class="h4">ADMIN</h2>  
+                            </div>
+                            <div class="card-body">
+							    <form action="" method="POST" class="mt-4">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword6">PASSWORD</label>
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" style="background-color: #d2ffe1"><span class="fas fa-unlock-alt"></span></span>
+                                                </div>
+                                                <input name="password" type="password" class="form-control" id="exampleInputPassword6" placeholder="Password" type="password" aria-label="Password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <button type="submit" class="btn btn-block btn-primary">Sign in</button> -->
+                                    <br>
+                                    <p style="margin: 0px;"><center><input type="submit" class="btn btn-block btn-primary" value="Sign in" style="background-color: #d2ffe1 "></center></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

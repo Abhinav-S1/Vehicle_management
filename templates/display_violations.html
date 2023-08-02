@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div id="heading">
+    <div class="col card bg-dribbble text-indigo shadow-soft border-light">
+        <center>
+            <h1>Traffic Violations</h1>
+        </center>
+    </div>
+</div>
+<br>
+<br>
+<div class="mb-5">
+    {% if len_row==0 %}
+    <div id="heading">
+        <div class="col">
+            <center>
+                <h2>No entries found</h2>
+            </center>
+        </div>
+    </div>
+    {% else %}
+    <div class="table-responsive-sm shadow-soft rounded">
+        <table class="table table-striped " id = "datatable">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="border-0" scope="col">License plate</th>
+                    <th class="border-0" scope="col">Model</th>
+                    <th class="border-0" scope="col">Challen no</th>
+                    <th class="border-0" scope="col">Location</th>
+                    <th class="border-0" scope="col">Type</th>
+                    <th class="border-0" scope="col">Fine Amt</th>
+                    <th class="border-0" scope="col">date</th>
+                    <th class="border-0" scope="col">time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in callresults%}
+                <tr>
+                    <td>{{res['lp_number']}}</td>
+                    <td>{{res['model']}}</td>
+                    <td>{{res['challen_number']}}</td>
+                    <td>{{res['location']}}</td>
+                    <td>{{res['type_of_violation']}}</td>
+                    <td>{{res['fine_amount']}}</td>
+                    <td>{{res['v_date']}}</td>
+                    <td>{{res['v_time']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div id="heading">
+        <div class="col card bg-twitter text-danger shadow-soft border-light p-4 text-center">
+            <!-- <div class="card bg-primary shadow-soft border-light p-4">
+                <div class="card-header text-center pb-0"> -->
+
+                <h2>Total fine amount = {{ total_fine['SUM(fine_amount)'] }}</h2>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+    </script>
+    {% endif %}
+    <!-- <center><a class="btn btn-primary" href="/add_vehicles">Add vehicle</a></center> -->
+</div>
+{% endblock %}

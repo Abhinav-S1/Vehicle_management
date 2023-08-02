@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div id="heading">
+    <div class="col card bg-dribbble text-indigo shadow-soft border-light">
+        <center>
+            <h1>Insurance details</h1>
+        </center>
+    </div>
+</div>
+<br>
+<br>
+<div class="mb-5">
+    {% if len_row==0 %}
+    <div id="heading">
+        <div class="col">
+            <center>
+                <h2>No entries found</h2>
+            </center>
+        </div>
+    </div>
+    {% else %}
+    <div class="table-responsive-sm shadow-soft rounded">
+        <table class="table table-striped " id="datatable" >
+            <thead class="thead-dark" >
+                <tr>
+                    <th class="border-0" scope="col">Username</th>
+                    <th class="border-0" scope="col">Aadhar</th>
+                    <th class="border-0" scope="col">License plate</th>
+                    <th class="border-0" scope="col">Model</th>
+                    <th class="border-0" scope="col">Insurance no</th>
+                    <th class="border-0" scope="col">Company</th>
+                    <th class="border-0" scope="col">Amount</th>
+                    <th class="border-0" scope="col">Regd date</th>
+                    <th class="border-0" scope="col">Expiry date</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in callresults%}
+                <tr>
+                    <td>{{res['username']}}</td>
+                    <td>{{res['aadhar']}}</td>
+                    <td>{{res['lp_number']}}</td>
+                    <td>{{res['model']}}</td>
+                    <td>{{res['i_number']}}</td>
+                    <td>{{res['i_company']}}</td>
+                    <td>{{res['i_amount']}}</td>
+                    <td>{{res['reg_date']}}</td>
+                    <td>{{res['exp_date']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+    </script>
+    {% endif %}
+
+</div>
+{% endblock %}

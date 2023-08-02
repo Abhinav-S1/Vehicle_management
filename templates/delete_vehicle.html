@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<main>
+    <section class="min-vh-300 d-flex bg-primary align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6 justify-content-center">
+                    <div class="card bg-dribbble shadow-soft border-light p-4">
+                        <div class="card-header text-center pb-0">
+                            <h2 class="h2">Remove Vehicle ?</h2>
+                        </div>
+                        <br>
+                        <div class="form-group text-center">
+                            <div class="bg-primary shadow-soft border-light p-0 rounded">
+                                <label for="exampleInputIcon3">License PLate</label>
+                            </div>
+                            <div class="card-header pb-0 text-center">
+                                <h4> {{res['lp_number']}}</h4>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group text-center">
+                            <div class="bg-primary shadow-soft border-light p-0 rounded">
+                                <label for="exampleInputIcon3">Model</label>
+                            </div>
+                            <div class="card-header pb-0 text-center">
+                                <h4> {{res['model']}}</h4>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group text-center">
+                            <div class="bg-primary shadow-soft border-light p-0 rounded">
+                                <label for="exampleInputIcon3">
+                                    Brand</label>
+                            </div>
+                            <div class="card-header pb-0 text-center">
+                                <h4> {{res['brand']}}</h4>
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <form action="" method="POST" class="mt-4">
+                            <center><input name="two_button" type="submit" class="btn btn-block btn-primary" value="confirm"
+                                style="background-color: #d2ffe1 "></center>
+                            <br>
+                            <center><input name="two_button" type="submit" class="btn btn-block btn-primary" value="cancel"
+                                    style="background-color: #006b3e; color: white;"></center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</main>
+<br><br><br><br><br>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</head>
+
+
+</html>

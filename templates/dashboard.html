@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block body %}
+<br>
+<h1 align="center">Welcome {{session.name}}</h1>
+<br><br>
+<div class="container">
+	<div class="card shadow">
+		<div class="card-body bg-twitter rounded">
+			<br>
+			<div class="row" style="align-content: center;">
+
+				<div class="col-3 box" style="margin:12px;">
+					<div class="card shadow">
+						<div class="card-body bg-dribbble rounded">
+							<center><img src="static/ab3.jpg" alt="" width="100px"></center><br>
+							<center><a href="/display_vehicles" class="btn btn-primary " style="background-color: #006b3e ; color: white; ">My Vehicles</a></center>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-3 box" style="margin:12px;">
+					<div class="card shadow">
+						<div class="card-body bg-dribbble rounded">
+							<center><img src="static/ab1.jpg" alt="" width="100px"></center><br>
+							<center><a href="/display_violations" class="btn btn-primary" style="background-color: #006b3e ; color: white; ">Traffic
+									Violations</a>
+							</center>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-3 box" style="margin:12px;">
+					<div class="card shadow">
+						<div class="card-body bg-dribbble rounded">
+							<center><img src="static/ab2.jpg" alt="" width="100px"></center><br>
+							<center><a href="/display_insurance" class="btn btn-primary " style="background-color: #006b3e ; color: white; " >Insurance
+									details</a></center>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+			</div>
+		</div>
+	</div>
+</div>
+<br><br><br>
+</div>
+<br><br><br>
+{% endblock %}

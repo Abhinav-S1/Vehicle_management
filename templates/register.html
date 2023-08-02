@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+{% block body %}
+<br><br><br><br><br>
+       <main>
+	<section class="min-vh-100 d-flex bg-primary align-items-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6 justify-content-center">
+                        <div class="card bg-dribbble shadow-soft border-light p-4">
+                            <div class="card-header text-center pb-0">
+							<h2 class="h4">REGISTER</h2>  
+                            </div>
+                            <div class="card-body">
+							    <form action="" method="POST" class="mt-4" name="register_form">
+                                    <div class="form-group">
+                                        <label for="exampleInputIcon3">USERNAME</label>
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="background-color: #d2ffe1"><span class="fas fa-user"></span></span>
+                                            </div>
+                                            <input name="username" class="form-control" id="exampleInputIcon3" placeholder="john@14" type="text" aria-label="email adress" value="{{p_username}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputIcon3">EMAIL</label>
+                                      <div class="input-group mb-4">
+                                          <div class="input-group-prepend">
+                                              <span class="input-group-text" style="background-color: #d2ffe1"><span class="fas fa-envelope"></span></span>
+                                          </div>
+                                          <input name="email" type="email" class="form-control" id="exampleInputIcon3" placeholder="example@company.com" type="text" aria-label="email adress" value="{{p_email}}" required>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputIcon3">NAME</label>
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="background-color: #d2ffe1"><span class="fas fa-user-circle"></span></span>
+                                        </div>
+                                        <input name="name" class="form-control" id="exampleInputIcon3" placeholder="John doe" type="text" aria-label="email adress" value="{{p_name}}" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputIcon3">AADHAR</label>
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="background-color: #d2ffe1"><span class="fas fa-address-card"></span></span>
+                                        </div>
+                                        <input name="aadhar" class="form-control" id="exampleInputIcon3" placeholder="" type="text" aria-label="email adress" minlength="12" maxlength="12" value="{{p_aadhar}}" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputIcon3">PHONE</label>
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="background-color: #d2ffe1"><span class="fa fa-mobile"></span></span>
+                                        </div>
+                                        <input name="phone" class="form-control" id="exampleInputIcon3" placeholder="" type="text" aria-label="email adress" minlength="10" maxlength="10" value="{{p_phone}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword6">PASSWORD</label>
+                                  <div class="input-group mb-4">
+                                      <div class="input-group-prepend">
+                                          <span class="input-group-text" style="background-color: #d2ffe1"><span class="fas fa-unlock-alt"></span></span>
+                                      </div>
+                                      <input name="password" type="password" class="form-control" id="exampleInputPassword6" placeholder="Password" type="password" aria-label="Password" minlength="8" required>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword6">PASSWORD</label>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="background-color: #d2ffe1"><span class="fas fa-unlock-alt"></span></span>
+                                    </div>
+                                    <input name="cpassword" type="password" class="form-control" id="exampleInputPassword6" placeholder="Password" type="password" aria-label="Password" minlength="8" required>
+                                </div>
+                            </div>
+      <p style="margin: 0px;"><center><input type="submit" class="btn btn-primary" value="Submit" style="background-color: #d2ffe1 "></center></p>
+      <!-- <p style="margin: 0px;"><input type="submit" class="btn btn-primary" value="Submit" style="background-color: #5850eb " onclick="allnumeric()"></p> -->
+    </form>
+    <p>Already have an account?
+        <a href="/login" id="register">Click here</a>.
+      </p>
+  </div>
+  <div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- <script>
+    function allnumeric()
+   {
+    var inputtxt = document.register_form.phone
+      var numbers = /^[0-9]+$/;
+      if(inputtxt.value.match(numbers))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input numeric characters only');
+      document.form1.text1.focus();
+      document.register_form.phone = "12";
+      return false;
+      }
+   } 
+</script> -->
+
+<br><br><br><br><br>
+{% endblock %}

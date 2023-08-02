@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- {% from "includes/_formhelpers.html" import render_field %} -->
+<div id="heading">
+  <div class="col">
+    <center>
+      <h1>Add New Vehicle details</h1>
+    </center>
+  </div>
+</div>
+<div class="login-box well bg">
+  <form method="POST" action="">
+
+    <div class="form-group">
+      <label for="exampleInputIcon3">LICENSE PLATE NUMBER</label>
+      <div class="input-group mb-4 ">
+        <input name="lp_number" class="form-control" id="exampleInputIcon3"  type="text" minlength="10" maxlength="10" value="{{lp_number}}" style="background-color: #d2ffe1 " required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputIcon3">ENGINE NUMBER</label>
+      <div class="input-group mb-4">
+        <input name="engine_number" class="form-control" id="exampleInputIcon3"  type="text" minlength="9" maxlength="12" value="{{engine_number}}" style="background-color: #d2ffe1 " required>
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="form-group col-6">
+      <label for="exampleInputIcon3">REGISTRATION DATE</label>
+      <div class="input-group mb-4">
+        <input name="reg_date" class="form-control" id="exampleInputIcon3"  type="date" style="background-color: #d2ffe1 " required>
+      </div>
+    </div>
+
+    <div class="form-group col-6">
+      <label for="exampleInputIcon3">EXPIRY DATE</label>
+      <div class="input-group mb-4">
+        <input name="exp_date" class="form-control" id="exampleInputIcon3"  type="date"  style="background-color: #d2ffe1 " required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputIcon3">MODEL</label>
+    <div class="input-group mb-4">
+      <input name="model" class="form-control" id="exampleInputIcon3" placeholder="" type="text" value="{{model}}" style="background-color: #d2ffe1 " required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputIcon3">BRAND</label>
+    <div class="input-group mb-4">
+      <input name="brand" class="form-control" id="exampleInputIcon3" placeholder="" type="text" value="{{brand}}" style="background-color: #d2ffe1 " required>
+    </div>
+  </div>
+
+    <p><center><input type="submit" class="btn btn-primary" value="Submit" style="background-color: #006b3e; color: #f7f9f7"></center></p>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+:root {
+    --primary: #f7f9f7;
+    --twitter: #d2ffe1;  /*buttons */
+    --dribbble: #9DC08B;
+    --github: #609966;
+    --secondary: #210124;
+    --slack: #006b3e;
+
+    --t1: #210124; /* secondary */
+    --t1: #8f1747; /*twitter*/
+    --t2: #b3dec1; /* github*/
+    --t3: #dbf9f0; /* dribble*/
+    --t4: #f7f9f7; /* primary*/
+
+}
+

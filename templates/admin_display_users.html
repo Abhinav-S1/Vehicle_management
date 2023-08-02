@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div id="heading">
+    <div class="col card bg-dribbble text-indigo shadow-soft border-light">
+        <center>
+            <h1>User details</h1>
+        </center>
+    </div>
+</div>
+<br>
+<br>
+<div class="mb-5">
+    {% if len_row==0 %}
+    <div id="heading">
+        <div class="col">
+            <center>
+                <h2>No entries found</h2>
+            </center>
+        </div>
+    </div>
+    {% else %}
+    <div class="table-responsive-sm shadow-soft rounded">
+        <table class="table table-striped " id = "datatable">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="border-0" scope="col">Username</th>
+
+                    <th class="border-0" scope="col">Name</th>
+                    <th class="border-0" scope="col">Email</th>
+                    <th class="border-0" scope="col">Aadhar</th>
+                    <th class="border-0" scope="col">Phone</th>
+                    <th class="border-0" scope="col">Address</th>
+                    <th class="border-0" scope="col">Remove User</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in callresults%}
+                <tr>
+                    <td>{{res['username']}}</td>
+                    <td>{{res['name']}}</td>
+                    <td>{{res['email']}}</td>
+                    <td>{{res['aadhar']}}</td>
+                    <td>{{res['phone']}}</td>
+                    <td>{{res['address']}}</td>
+                    <td><a href="/admin_delete_user/{{res['username']}}" class="btn btn-block btn-danger">remove</a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+    </script>
+    {% endif %}
+    <!-- <center><a class="btn btn-primary" href="/add_vehicles">Add vehicle</a></center> -->
+</div>
+{% endblock %}

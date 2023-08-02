@@ -1,0 +1,505 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<br>
+<br>
+<div class="col card bg-dribbble text-indigo shadow-soft border-light">
+    <center>
+        <h1>Insurance stats</h1>
+    </center>
+</div>
+<br>
+<div class="row bg-twitter text-indigo shadow-soft border-light rounded">
+    <div class="form-group col-6">
+        <canvas id="myChart1"></canvas>
+    </div>
+    <div class="form-group col-6">
+        <canvas id="myChart2"></canvas>
+    </div>
+</div>
+<br>
+<br>
+
+
+<div class="col card bg-dribbble text-indigo shadow-soft border-light">
+    <center>
+        <h1>Vehicle stats</h1>
+    </center>
+</div>
+<br>
+<div class="row bg-twitter text-indigo shadow-soft border-light rounded">
+    <div class="form-group col-6">
+        <canvas id="myChart3"></canvas>
+    </div>
+    <div class="form-group col-6">
+        <canvas id="myChart4"></canvas>
+    </div>
+</div>
+<br>
+<br>
+
+
+<div class="col card bg-dribbble text-indigo shadow-soft border-light">
+    <center>
+        <h1>Violation stats</h1>
+    </center>
+</div>
+<br>
+<div class="card-body bg-twitter rounded shadow-soft border-light rounded">
+
+    <canvas id="myChart5"></canvas>
+</div>
+
+<br>
+<div class="card-body bg-twitter rounded shadow-soft border-light rounded">
+    <canvas id="myChart6"></canvas>
+</div>
+
+<br>
+<div class="card-body bg-twitter rounded shadow-soft border-light rounded">
+    <canvas id="myChart7"></canvas>
+</div>
+
+<br>
+<br>
+
+
+
+
+
+
+
+<!-- ------------------------------------------------------------------- -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    // INSURANCE COMPANY
+    const ctx1 = document.getElementById('myChart1');
+    const jsonfile1 = JSON.parse({{ insurance_company| tojson}});
+    const company_name1 = jsonfile1.map(function (index) {
+        return index.i_company;
+    })
+    const company_count1 = jsonfile1.map(function (index) {
+        return index.i_company_count;
+    })
+
+    myChart1
+
+    new Chart(ctx1, {
+        type: 'doughnut',
+        data: {
+            labels: company_name1,
+            datasets: [
+                {
+                    label: 'no. of customers',
+                    data: company_count1,
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            aspectRatio: 1,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Insurance Companies',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    },
+                    font: {
+                        size: 30
+                    }
+                }
+            }
+        }
+    });
+
+
+    // INSURED VEHICLES
+    const ctx2 = document.getElementById('myChart2');
+    const jsonfile2 = JSON.parse({{ insured_vehicles | tojson}});
+    const username1 = jsonfile2.map(function (index) {
+        return index.username;
+    })
+    const vehicle_count1 = jsonfile2.map(function (index) {
+        return index.vehicle_count;
+    })
+    const i_vehicle_count1 = jsonfile2.map(function (index) {
+        return index.i_vehicle_count;
+    })
+    myChart2
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: username1,
+            datasets: [
+                {
+                    label: 'no. of vehicles',
+                    data: vehicle_count1,
+                    borderWidth: 1,
+                },
+                {
+                    label: 'no. of insured vehicles',
+                    data: i_vehicle_count1,
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            aspectRatio: 1,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Insured Vehicles',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    },
+                    font: {
+                        size: 30
+                    }
+                }
+            }
+        }
+    });
+
+    //////////////////////////////////////////////////////////////////////////////
+
+    //VEHICLE STATE
+
+    const ctx3 = document.getElementById('myChart3');
+    const jsonfile3 = JSON.parse({{ vehicle_state| tojson}});
+    const vehicle_state1 = jsonfile3.map(function (index) {
+        return index.v_state;
+    })
+    const vehicle_state_count1 = jsonfile3.map(function (index) {
+        return index.v_state_count;
+    })
+    myChart3
+    new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: vehicle_state1,
+            datasets: [
+                {
+                    label: 'no. of vehicles',
+                    data: vehicle_state_count1,
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            aspectRatio: 1,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Vehicles by state',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    },
+                    font: {
+                        size: 30
+                    }
+                }
+            }
+        }
+    });
+
+
+    // VEHICLE BRAND
+    const ctx4 = document.getElementById('myChart4');
+    const jsonfile4 = JSON.parse({{ vehicle_brand | tojson}});
+    const vehicle_brand = jsonfile4.map(function (index) {
+        return index.v_brand;
+    })
+    const vehicle_brand_count1 = jsonfile4.map(function (index) {
+        return index.v_brand_count;
+    })
+    myChart4
+    new Chart(ctx4, {
+        type: 'doughnut',
+        data: {
+            labels: vehicle_brand,
+            datasets: [
+                {
+                    label: 'no. of vehicles',
+                    data: vehicle_brand_count1,
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            aspectRatio: 1,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Vehicles by brand',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    },
+                    font: {
+                        size: 30
+                    }
+                }
+            }
+        }
+    });
+
+
+    /////////////////////////////////////////////////////////////////////
+
+    // TYPE OF VIOLATION
+    const jsonfile5 = JSON.parse({{ violation_types | tojson}});
+    const violation_type1 = jsonfile5.map(function (index) {
+        return index.type_of_violation;
+    })
+    const violation_type_count1 = jsonfile5.map(function (index) {
+        return index.violation_count;
+    })
+    const violation_type_fine1 = jsonfile5.map(function (index) {
+        return index.violation_total_amount;
+    })
+    const ctx5 = document.getElementById('myChart5');
+    myChart5
+    new Chart(ctx5, {
+        type: 'bar',
+        data: {
+            labels: violation_type1,
+            datasets: [
+                {
+                    label: 'no. of offences',
+                    yAxisID: 'A',
+                    data: violation_type_count1,
+                    borderWidth: 1,
+                },
+                {
+                    label: 'total fine',
+                    yAxisID: 'B',
+                    data: violation_type_fine1,
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    id: 'A',
+                    type: 'linear',
+                    position: 'left',
+
+                }, {
+                    id: 'B',
+                    type: 'linear',
+                    position: 'right',
+                }]
+            },
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'type of violations',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    },
+                    font: {
+                        size: 30
+                    }
+                }
+            }
+        }
+    });
+
+
+    // LOCATION OF VIOLATION
+    const jsonfile6 = JSON.parse({{ violation_location | tojson}});
+    const violation_location1 = jsonfile6.map(function (index) {
+        return index.location;
+    })
+    const violation_type_count2 = jsonfile6.map(function (index) {
+        return index.l_violation_count;
+    })
+    const violation_type_fine2 = jsonfile6.map(function (index) {
+        return index.l_violation_total_amount;
+    })
+    const ctx6 = document.getElementById('myChart6');
+    myChart6
+    new Chart(ctx6, {
+        type: 'bar',
+        data: {
+            labels: violation_location1,
+            datasets: [
+                {
+                    label: 'no. of offences',
+                    yAxisID: 'A',
+                    data: violation_type_count2,
+                    borderWidth: 1,
+                },
+                {
+                    label: 'total fine',
+                    yAxisID: 'B',
+                    data: violation_type_fine2,
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    id: 'A',
+                    type: 'linear',
+                    position: 'left',
+
+                }, {
+                    id: 'B',
+                    type: 'linear',
+                    position: 'right',
+                }]
+            },
+            responsive: true,
+
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Violation Locations',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    },
+                    font: {
+                        size: 30
+                    }
+                }
+            }
+        }
+    });
+
+
+    // MONTH OF VIOLATION
+    const jsonfile7 = JSON.parse({{ violation_month | tojson}});
+    const violation_month1 = jsonfile7.map(function (index) {
+        switch(index.month)
+        {
+            case 1:
+      return "January";
+    case 2:
+      return "February";
+    case 3:
+      return "March";
+    case 4:
+      return "April";
+    case 5:
+      return "May";
+    case 6:
+      return "June";
+    case 7:
+      return "July";
+    case 8:
+      return "August";
+    case 9:
+      return "September";
+    case 10:
+      return "October";
+    case 11:
+      return "November";
+    case 12:
+      return "December";
+    default:
+      return "Invalid month number";
+        }
+        ;
+    })
+    const violation_type_count3 = jsonfile7.map(function (index) {
+        return index.m_violation_count;
+    })
+    const violation_type_fine3 = jsonfile7.map(function (index) {
+        return index.m_violation_total_amount;
+    })
+    const ctx7 = document.getElementById('myChart7');
+    myChart7
+    new Chart(ctx7, {
+        type: 'bar',
+        data: {
+            labels: violation_month1,
+            datasets: [
+                {
+                    label: 'no. of offences',
+                    yAxisID: 'A',
+                    data: violation_type_count3,
+                    borderWidth: 1,
+                },
+                {
+                    label: 'total fine',
+                    yAxisID: 'B',
+                    data: violation_type_fine3,
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    id: 'A',
+                    type: 'linear',
+                    position: 'left',
+
+                }, {
+                    id: 'B',
+                    type: 'linear',
+                    position: 'right',
+                }]
+            },
+            responsive: true,
+
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Month wise Violations',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    },
+                    font: {
+                        size: 30
+                    }
+                }
+            }
+        }
+    });
+
+</script>
+
+
+
+{% endblock %}

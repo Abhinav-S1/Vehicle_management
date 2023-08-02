@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div id="heading">
+    <div class="col card bg-dribbble text-indigo shadow-soft border-light">
+        <center>
+            <h1>Vehicle details</h1>
+        </center>
+    </div>
+</div>
+<br>
+<br>
+<div class="mb-5">
+    {% if len_row==0 %}
+    <div id="heading">
+        <div class="col">
+            <center>
+                <h2>No entries found</h2>
+            </center>
+        </div>
+    </div>
+    {% else %}
+    <div class="table-responsive-sm shadow-soft rounded">
+        <table class="table table-striped " id = "datatable">
+            <thead class="thead-dark" >
+                <tr>
+                    <th class="border-0" scope="col">License plate</th>
+                    <th class="border-0" scope="col">Engine no</th>
+                    <th class="border-0" scope="col">Model</th>
+                    <th class="border-0" scope="col">Brand</th>
+                    <th class="border-0" scope="col">Regd date</th>
+                    <th class="border-0" scope="col">Expiry date</th>
+                    
+                    <th class="border-0" scope="col">Violations</th>
+                    <th class="border-0" scope="col">Insurance</th>
+                    <th class="border-0" scope="col">Delete?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in callresults%}
+                <tr>
+                    <td>{{res['lp_number']}}</td>
+                    <td>{{res['engine_number']}}</td>
+                    <td>{{res['model']}}</td>
+                    <td>{{res['brand']}}</td>
+                    <td>{{res['reg_date']}}</td>
+                    <td>{{res['exp_date']}}</td>
+                    
+                    <!-- need to write a confirmation window> -->
+
+                    <td><a href="/display_violations/{{res['lp_number']}}" class="btn btn-block btn-warning">check</a></td>
+                    
+                    <td><a href="/display_insurance/{{res['lp_number']}}" class="btn btn-block btn-info">show</a></td>
+                    <td><a href="/delete_vehicle/{{res['lp_number']}}" class="btn btn-block btn-danger">remove</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+    </script>
+    {% endif %}
+    <br>
+    <center><a class="btn btn-primary" href="/add_vehicles" style="background-color: #d2ffe1 ">Add vehicle</a></center>
+</div>
+{% endblock %}
